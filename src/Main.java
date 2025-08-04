@@ -3,41 +3,24 @@ public class Main {
 
 
         int balance = 100; // рублей - денежный баланс (счёт) клиента
-        double rate = 100; // рублей - бонусный тариф
+        int rate = 100; // рублей - бонусный тариф
 
 
-        int firstPayment = 300; // рублей - сумма первого платежа
-        double firstBonuses; // рублей - количество начисленных бонусов после первого платежа
+        int payment = 1_100; // рублей - сумма платежа
+        int bonuses; // рублей - количество начисленных бонусов
 
 
-        if (firstPayment > 1_000) {
-            firstBonuses = firstPayment / rate;
+        if (payment > 1_000) {
+            bonuses = payment / rate;
         } else {
-            firstBonuses = 0;
+            bonuses = 0;
         }
 
 
-        int firstBalance = balance + firstPayment; // баланс после пополнения первым платежом
+        int newBalance = balance + payment + bonuses; // баланс после пополнения
 
 
-        System.out.println(firstBalance);
-        System.out.println(firstBonuses);
-
-
-        int secondPayment = 1_150; // рублей - сумма второго платежа
-        double secondBonuses; // рублей - количество начисленных бонусов после второго платежа
-
-        if (secondPayment > 1_000) {
-            secondBonuses = firstBonuses + (secondPayment / rate);
-        } else {
-            secondBonuses = firstBonuses + 0;
-        }
-
-
-        int secondBalance = firstBalance + secondPayment; // баланс после пополнения вторым платежом
-
-
-        System.out.println(secondBalance);
-        System.out.println(secondBonuses);
+        System.out.println(newBalance);
+        System.out.println(bonuses);
     }
 }
